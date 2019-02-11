@@ -1,4 +1,4 @@
-# This is the repository that keeps useful document for CSCI 4041 class
+# CSCI 4041 Reference Documents
 
 ## Loop Invariant
 
