@@ -34,5 +34,5 @@ Insert the element to the end of the array, then decide its position O(logn)
 
 ## Heap Sort
  1. Build a heap
- 2. Recursively call the function `Extract-Min`
- 3. Heapify
+ 2. Recursively call the function `Extract-Min`, and swap it with the last element.
+ 3. Call heapify on the first element.
