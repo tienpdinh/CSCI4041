@@ -10,13 +10,13 @@ class HeapSort:
             for i in range(self.heap_size, 1, -1):
                 self.__swap(1, i)
                 self.heap_size -= 1
-                self.__max_heapify(1)
+                self.__min_heapify(1)
         else:
             self.__build_max_heap()
             for i in range(self.heap_size, 1, -1):
                 self.__swap(1, i)
                 self.heap_size -= 1
-                self.__min_heapify(1)
+                self.__max_heapify(1)
         return self.lst
 
     def __build_max_heap(self):
@@ -28,13 +28,11 @@ class HeapSort:
             self.__min_heapify(i)
 
     def __max_heapify(self, index):
-        largest = 0
+        largest = index
         l = self.__left_child_index(index)
         r = self.__right_child_index(index)
         if l <= self.heap_size and self.__get(l) > self.__get(index):
             largest = l
-        else:
-            largest = index
         if r <= self.heap_size and self.__get(r) > self.__get(largest):
             largest = r
         if largest != index:
@@ -42,23 +40,21 @@ class HeapSort:
             self.__max_heapify(largest)
 
     def __min_heapify(self, index):
-        smallest = 0
+        smallest = index
         l = self.__left_child_index(index)
         r = self.__right_child_index(index)
         if l <= self.heap_size and self.__get(l) < self.__get(index):
             smallest = l
-        else:
-            smallest = index
-        if r <= self.heap_size and self.__get(r) < self.__get(l):
+        if r <= self.heap_size and self.__get(r) < self.__get(smallest):
             smallest = r
         if smallest != index:
             self.__swap(index, smallest)
             self.__min_heapify(smallest)
 
-    def __swap(self, index, largest):
+    def __swap(self, index, index2):
         tmp = self.__get(index)
-        self.__set(index, self.__get(largest))
-        self.__set(largest, tmp)
+        self.__set(index, self.__get(index2))
+        self.__set(index2, tmp)
 
     def __get(self, index):
         return self.lst[index - 1]
