@@ -1,13 +1,20 @@
 # Binary Tree Implementation
 # We only deal with complete or nearly complete binary tree
+#			10
+#		9		 7		<= This is an example of a nearly complete BT
+#	 3	   5
+#  0   0 1   1
 # This is NOT a binary search tree
-# Incomplete
 
 class BinaryTree:
 
-	def __init__(self, heap_size, tree):
+	def __init__(self, tree):
+		"""
+		Args:
+		tree: List representation of Binary Tree
+		"""
 		self.tree = tree
-		self.heap_size = heap_size
+		self.heap_size = len(tree)
 
 	def left_child(self, index):
 		return 2 * (index + 1)
