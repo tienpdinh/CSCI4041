@@ -19,7 +19,20 @@ class BinaryTree:
 		return (index + 1) // 2
 
 	def max_heapify(self, index):
-		left_index = left_child(index)
-		right_index = right_child(index)
+		largest = 0
+		left_index = self.left_child(index)
+		right_index = self.right_child(index)
 		if left_index <= self.heap_size and self.tree[left_index] > self.tree[index]:
-			pass
+			largest = left_index
+		else:
+			largest = index
+		if right_index <= self.heap_size and self.tree[right_index] > self.tree[largest]:
+			largest = right_index
+		if largest != index:
+			self.swap(index, largest)
+			self.max_heapify(largest)
+
+	def swap(self, index, largest):
+		tmp = self.tree[index]
+		self.tree[index] = self.tree[largest]
+		self.tree[largest] = tmp
