@@ -1,10 +1,18 @@
 class HeapSort:
 
     def __init__(self, lst):
+        """
+        Args:
+        lst: The list that needs to be sorted.
+        """
         self.lst = lst.copy()
         self.heap_size = len(self.lst)
 
     def sort(self, descending=False):
+        """
+        Args:
+        descending: If set to True, the list will be sorted in descending order
+        """
         if descending:
             self.__build_min_heap()
             for i in range(self.heap_size, 1, -1):
@@ -19,6 +27,7 @@ class HeapSort:
                 self.__max_heapify(1)
         return self.lst
 
+    # These are helper functions and they should not be called outside the class.
     def __build_max_heap(self):
         for i in range(self.heap_size, 0, -1):
             self.__max_heapify(i)
