@@ -1,5 +1,6 @@
 # Midterm 1 Topics
 ## Tuesday, Feb 26, 2019
+ * Read the syllabus (for bonus question).
  * Mathematics from prerequisite courses.
  * What a recurrence is.
  * How to solve recurrences in simple special cases.
@@ -42,3 +43,13 @@ MAX-HEAPIFY
 PARENT  
 RIGHT
 ```
+
+
+## Won't ask
+ * Definition questions.
+
+## Ask
+ * Do? Runtime? Proof for runtime for an algorithm in Cormen's text.
+ * Fixing algorithm.
+ * Prove some expression is in Big O of something.
+ * Write an algorithm.
