@@ -1,3 +1,6 @@
+# Try to implement this in C might help understanding the algorithm
+# Try to implement priority queue in C
+
 class HeapSort:
 
     def __init__(self, lst):
