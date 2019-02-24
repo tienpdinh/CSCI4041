@@ -27,6 +27,7 @@
    * [Here](https://www.geeksforgeeks.org/backtracking-algorithms/)
  * The parts of a backtracking algorithm: base case, make a decision, explore the decision, unmake the decision.
  * What continuation passing is.
+   * Not in Cormen's text.
  * How the Python function permute works, and its run time.
  * What a binary tree is.
  * Binary tree terminology: child, edge (link), empty tree, height (in terms of edges), internal node, external (leaf) node, left child, node (vertex), right child, root, parent, etc.
