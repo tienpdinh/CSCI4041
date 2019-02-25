@@ -10,7 +10,7 @@
    * This should be in your notebook (if you take note during class)
    * Cormen's page 44.
  * How to prove that an expression is in O(e), Θ(e), Ω(e).
-   * The mothod generally is to find a constant C and a bound for n.
+   * The method generally is to find a constant C and a bound for n.
  * What a divide and conquer algorithm is.
    * Errrm, divide and conquer, literally.
  * The parts of a divide and conquer algorithm: divide, conquer, combine.
@@ -20,7 +20,12 @@
  * What the Master Theorem is.
  * How to solve recurrences using the Master Theorem.
    * Look in the [recitation](https://www.evernote.com/shard/s626/client/snv?noteGuid=39b6e39a-91c2-4200-b3bd-ea2e2c2dd61b&noteKey=132c8adbf32370cf&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs626%2Fsh%2F39b6e39a-91c2-4200-b3bd-ea2e2c2dd61b%2F132c8adbf32370cf&title=4041%2BRecitation%2BContent)
+   * There are 3 cases to consider:
+     * If N^(log_b(a)) < f(N) then T(N) = Θ(f(N))
+     * If N^(log_b(a)) > f(N) then T(N) = Θ(N^(log_b(a)))
+     * If N^(log_b(a)) = f(N) then T(N) = Θ(f(N) * logN)
  * What a loop invariant is.
+   * Something always true.
  * How to prove an algorithm correct using a loop invariant.
  * The three parts of such a proof: initialization, maintenance, termination.
  * What a backtracking algorithm is.
@@ -29,6 +34,8 @@
  * What continuation passing is.
    * Not in Cormen's text.
  * How the Python function permute works, and its run time.
+   * Backtracking, make the decision, recursively explore the decision, the unmake the decision.
+   * Run time is O(N!) (factorial, slow)
  * What a binary tree is.
  * Binary tree terminology: child, edge (link), empty tree, height (in terms of edges), internal node, external (leaf) node, left child, node (vertex), right child, root, parent, etc.
  * What a complete binary tree is.
