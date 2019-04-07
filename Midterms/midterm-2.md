@@ -4,18 +4,37 @@
   * Hash table is an effective data structure to implement dictionary that often results in O(1) search time.
 * What a hash function is.
   * Hash function maps the universe U of keys into the slots of a hash table T[0..m-1].
-* The division method (with mod) for designing hash functions.
+* The division method (with mod) for designing hash functions. (Section 11.3.1)
+  * h(k) = k mod m. We map a key k into one of m slots by taking the remainder of k divided by m.
+  * Could be used for simple uniform hashing.
 * What a hash modulus is, and how to choose one.
+  * What is this?
 * What a hash table collision is.
+  * When the hash function generates the same slot for different keys.
 * What simple uniform hashing is.
+  * Is when the probability of the hash functions generating different keys are distributed equally among all slots.
+  * Pr{h(k) = j} = 1/M. M is the total slots of the hash table, 0 <= j < M.
+  * The best case is when the key is the first element in the bucket O(1).
+  * Worst case is when all keys go to the same bucket O(n).
+  * Average case depends on how well the hash function distributes keys among buckets.
+  * For an unsuccessful search, k is not in the table, each bucket is equally likely to be searched, avg runtime will be Θ(α + 1) where the 1 is the cost of h(k).
+  * The avg runtime is the same for a successful search, a full proof of this is in the notebook, involves probability and expected values.
 * How to resolve collisions in a hash table by chaining.
+  * The idea of buckets, each bucket contains a linked list, a hash table with M elements has M buckets.
 * What the load factor α is.
+  * Assuming we have M buckets in a hash table, and we have a total of n possible keys that we need to hash. Load factor is defined as n/M, the average number of elements in each bucket.
 * What an expected value is.
+  * The sum of each possible value multiplied by its probability in a sample space.
 * Linearity, and other rules for manipulating expected values.
 * What a random variable is.
 * What the expected search time is for a chained hash table under simple uniform hashing.
-* What probing is (Cormen calls it open addressing).
+  * Defined above.
+* What probing is (Cormen calls it open addressing). (Section 11.4)
+  * In probing, each key gets its own slot in the hash table, in other words, this is to guarantee a load factor of 1.
+  * Insert and search algorithms are in the notebook.
 * What uniform hashing is (different from simple uniform hashing).
+  * Page 271.
+  * The probe sequence of each key is equally likely to be any of the m! permutations of (0..m-1). Uniform hashing produces a whole probe sequence for a single key (unlike simple uniform hashing which generates only one value for each key).
 * What clustering is.
 * Strategies for probing: linear probing, quadratic probing, double hashing.
 * What a Binary Search Tree (BST) is (as discussed in lecture).
