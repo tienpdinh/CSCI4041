@@ -7,3 +7,4 @@
    * _P'_ is optimally solved in S. That is, the solution for _P'_ contained within _S_ is optimal for _P'_. To do this it is best to express the value of _S_ as some function that depends on the value of the optimal solution _S'_ for _P'_ and parameters of the problem. Then argue that _P'_ is optimally solved within _S_.
 
 [Source](https://www.cse.wustl.edu/~sg/CSE441_FL04/greedy-methodology.pdf)
+[Example](https://www.coursera.org/lecture/algorithms-greedy/proof-of-optimal-substructure-0qjbs)
