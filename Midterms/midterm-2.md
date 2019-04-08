@@ -102,6 +102,7 @@
 * How OPTIMAL-BST uses the arrays e, w, and root.
 * How the array root represents a tree.
 * What a Greedy Algorithm is.
+  * Greedy Algorithm always make the choice that looks best at the moment.
 * How a string of characters can encoded as a string of bits.
 * What fixed length and variable length character codes are.
 * What a Huffman Tree (HT) is.

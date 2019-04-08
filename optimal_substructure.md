@@ -1,0 +1,3 @@
+# Proving the Optimal Substructure
+
+1. Prove that the problem has the **greedy choice property** which says that the first step (call it _g_) taken by the greedy algorithm part of _some_ optimal solution. This is typically done using a proof by contradiction in which some arbitrary optimal solution _S_ that doesn't include _g_ is modified to create a solution _S'_ that include _g_. It is very important to prove that _S'_ is a legal solution and that _S'_ is at least as good as _S_.
