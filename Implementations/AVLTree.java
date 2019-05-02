@@ -1,6 +1,15 @@
 /**
  * This implementation is based on the implementation from geeksforgeeks
  * https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
+ * The key takeaway for avl tree is there is no such thing as double
+ * rotation, all 4 cases are merely the combinations of a single
+ * leftRotation or rightRotation, by combining the correct rotations
+ * we can maintain the balance factor of the tree.
+ *
+ * To run this from a Unix shell
+ * > javac AVLTree.java
+ * > java AVLTree
+ *
  */
 
 public class AVLTree {
@@ -26,12 +35,12 @@ public class AVLTree {
     }
 
     // Utility function to get the height of a tree rooted at Node N
-    public int height(Node N) {
+    private int height(Node N) {
 	return (N == null) ? 0 : N.height;
     }
 
     // Utility func to return the max num
-    public int max(int a, int b) {
+    private int max(int a, int b) {
 	return (a > b) ? a : b;
     }
 
@@ -41,7 +50,7 @@ public class AVLTree {
     //     x   n ==>  z   y
     //    / \            / \ 
     //   z   m          m   n
-    public Node rightRotate(Node y) {
+    private Node rightRotate(Node y) {
 	Node x = y.left;
 	Node m = x.right;
 
@@ -63,7 +72,7 @@ public class AVLTree {
     //     x   n <==  z   y
     //    / \            / \ 
     //   z   m          m   n
-    public Node leftRotate(Node x) {
+    private Node leftRotate(Node x) {
 	Node y = x.right;
 	Node m = y.left;
 
@@ -80,7 +89,7 @@ public class AVLTree {
     }
 
     // Balance factor, left height - right height
-    public int getBalance(Node N) {
+    private int getBalance(Node N) {
 	if (N == null) return 0;
 	return height(N.left) - height(N.right);
     }
@@ -143,11 +152,55 @@ public class AVLTree {
 	//     /    on y, then a left rotation on x.
 	//    n
 	// This is double right left, balance factor is -2
-	if (bal < -1 %% key < node.right.key) {
+	if (bal < -1 && key < node.right.key) {
 	    node.right = rightRotate(node.right);
 	    return leftRotate(node);
 	}
 
+	// Awesome, the tree is balanced, there is nothing
+	// else for me to do other than just return the node.
 	return node;
+    }
+
+    // Utility function to print the preorder traversal
+    // of the tree (for testing purposes)
+    public void preorder(Node node) {
+	if (node != null) {
+	    System.out.print(node.key + ", ");
+	    preorder(node.left);
+	    preorder(node.right);
+	}
+    }
+
+    // Main function to test stuff
+    public static void main(String[] args) {
+	AVLTree avl = new AVLTree();
+	avl.root = avl.insert(avl.root, 10);
+	avl.root = avl.insert(avl.root, 20);
+	avl.root = avl.insert(avl.root, 30);
+	avl.root = avl.insert(avl.root, 40);
+	avl.root = avl.insert(avl.root, 50);
+	avl.root = avl.insert(avl.root, 60);
+	avl.root = avl.insert(avl.root, 70);
+	avl.preorder(avl.root);
+	System.out.println("");
+
+	// Normal tree insertion would result in a linear
+	// tree which looks just like a linked list.
+	// 10
+	//  \
+	//  20                     40
+	//   \                    /  \
+	//   30                  /    \
+	//    \                 /      \
+	//    40               20      60
+	//     \              /  \    /  \
+	//     50            10  30  50  70
+	//      \
+	//      60
+	//       \
+	//       70
+	// On the left is the ugly linked list, while
+	// on the right is the elegent avl tree.
     }
 }
