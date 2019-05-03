@@ -7,8 +7,8 @@
  * we can maintain the balance factor of the tree.
  *
  * To run this from a Unix shell
- * > javac AVLTree.java
- * > java AVLTree
+ * $ javac AVLTree.java
+ * $ java AVLTree
  *
  */
 
@@ -94,10 +94,15 @@ public class AVLTree {
 	return height(N.left) - height(N.right);
     }
 
+    // The insert function
+    public void insertNode(int key) {
+	this.root = this.insert(this.root, key);
+    }
+
     // The insert function, first we do normal insert,
     // then we do rotation to maintain the balance factor
     // of the tree
-    public Node insert(Node node, int key) {
+    private Node insert(Node node, int key) {
 	// Perform the normal BST insert
 	if (node == null)
 	    return (new Node(key));
@@ -175,13 +180,13 @@ public class AVLTree {
     // Main function to test stuff
     public static void main(String[] args) {
 	AVLTree avl = new AVLTree();
-	avl.root = avl.insert(avl.root, 10);
-	avl.root = avl.insert(avl.root, 20);
-	avl.root = avl.insert(avl.root, 30);
-	avl.root = avl.insert(avl.root, 40);
-	avl.root = avl.insert(avl.root, 50);
-	avl.root = avl.insert(avl.root, 60);
-	avl.root = avl.insert(avl.root, 70);
+	avl.insertNode(10);
+	avl.insertNode(20);
+	avl.insertNode(30);
+	avl.insertNode(40);
+	avl.insertNode(50);
+	avl.insertNode(60);
+	avl.insertNode(70);
 	avl.preorder(avl.root);
 	System.out.println("");
 
